@@ -1,0 +1,259 @@
+$background-color: #edf1fb !important;
+$primary-heading-color: #1b48bb !important;
+$primary-text-color: #4D74F0;
+$dark-color: #282828 !important;
+
+body {
+  padding: 0;
+  max-height: 100%;
+}
+
+.dropdown-toggle::after {
+  display: none !important;
+}
+
+nav {
+  color: $primary-text-color;
+  font-size: 16px;
+  height: 65px;
+  width: 100%;
+  background-color: $background-color;
+
+  .nav-content {
+    width: 70%;
+  }
+
+  .fa-plus {
+    border: 1px solid $primary-text-color;
+    height: 24px;
+    width: 24px;
+    padding: 4px;
+    margin-right: 1rem;
+  }
+
+  .dropdown-icon {
+    cursor: pointer;
+  }
+
+  button {
+    border: 1px solid $primary-text-color;
+    color: $primary-text-color;
+    width: 108px;
+  }
+}
+
+.main-container {
+  width: 100%;
+  background-color: $background-color;
+  margin-bottom: 200px;
+
+  .content {
+    width: 70%;
+    height: 800px;
+
+    .header-section {
+      padding-top: 180px;
+      padding-bottom: 90px;
+      width: 60%;
+
+      h1 {
+        color: $primary-heading-color;
+        font-size: 44px;
+        font-weight: bold;
+      }
+
+      .lead {
+        font-size: 24px;
+        margin-bottom: 1.5rem;
+        color: $dark-color;
+
+      }
+
+      button {
+        background: linear-gradient(100.74deg, #FFC400 -13%, #FFC831 56.18%, #FFCC3F 80.13%);
+        border: none;
+        color: $dark-color;
+        font-size: 20px;
+        height: 52px;
+        width: 155px;
+        font-weight: bold;
+      }
+    }
+
+    .role-select {
+      font-weight: bold;
+      font-size: 16px;
+      margin-bottom: 1rem;
+    }
+
+    .role-card {
+      color: #fff;
+      font-size: 24px;
+      height: 400px;
+      width: 31%;
+      border-radius: 30px;
+      padding-top: 40px;
+
+      h4 {
+        margin-bottom: 0 !important;
+      }
+
+      img {
+        transition: transform 0.3s ease;
+        transform: scale(1);
+        transform-origin: bottom;
+        cursor: pointer;
+      }
+
+      img:hover {
+        transform: scale(1.2);
+      }
+
+      &.kindergarten {
+        background: linear-gradient(138.52deg, #4770F2 2.76%, #2652D9 120.19%);
+      }
+
+      &.parent {
+        background: linear-gradient(123.1deg, #088C67 19.16%, #ACCE42 81%);
+      }
+
+      &.educator {
+        background: linear-gradient(137.11deg, #DB8637 -2.05%, #FFC831 103.23%, #FFCC3F 130.38%);
+      }
+    }
+  }
+}
+
+.feed-section {
+  width: 70%;
+
+  .header {
+    margin-bottom: 2rem;
+
+    h4 {
+      font-size: 32px;
+      font-weight: bold;
+    }
+
+    .dropdown-sorting {
+      font-weight: bold;
+      color: #717579;
+      cursor: pointer;
+    }
+  }
+
+}
+
+@media (max-width: 768px) {
+  nav {
+    padding-left: 20px;
+    padding-right: 20px;
+    align-items: flex-start !important;
+    font-size: 14px;
+
+    .nav-content {
+      width: 100%;
+    }
+
+    .logo-section {
+      flex-direction: column;
+      align-items: flex-start !important;
+      width: auto !important;
+
+      img {
+        width: 70px;
+      }
+    }
+
+    .fa-plus {
+      margin-right: 0.5rem !important;
+    }
+
+    .logo-dropdown {
+      display: block !important;
+      color: $dark-color;
+    }
+
+
+    button {
+      width: 78px;
+    }
+
+    .selected-value {
+      display: block !important;
+      font-size: 14px;
+      color: $dark-color;
+      font-weight: normal !important;
+      margin-bottom: 0.5rem;
+    }
+  }
+
+  .main-container {
+    height: 690px;
+    margin-bottom: 100px;
+
+    .content {
+      width: 90%;
+
+      .header-section {
+        width: 100% !important;
+        text-align: left !important;
+        padding-top: 80px;
+        padding-bottom: 20px;
+
+        h1 {
+          font-size: 32px;
+        }
+
+        .lead {
+          font-size: 20px;
+        }
+
+        button {
+          width: 100%;
+        }
+      }
+
+      .role-cards {
+        flex-direction: column !important;
+      }
+
+      .role-card {
+        width: 100%;
+        height: 80px !important;
+        flex-direction: row !important;
+        padding: 1rem !important;
+        font-size: 16px;
+        margin-bottom: 1rem;
+        align-items: center;
+        border-radius: 16px;
+
+
+        img {
+          width: 100px;
+        }
+
+      }
+
+    }
+  }
+  .feed-section {
+    width: 90%;
+
+    .header {
+      flex-direction: column;
+
+      h4 {
+        font-size: 24px;
+      }
+
+      .dropdown-sorting {
+        font-size: 16px;
+        text-align: end;
+        justify-content: end;
+        margin-top: 0.5rem;
+        margin-bottom: 0.5rem;
+      }
+    }
+  }
+}
