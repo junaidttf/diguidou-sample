@@ -1,0 +1,452 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block feed %}
+    <section class="feed-section mx-auto">
+        <h4 class="mt-5">Your community feed</h4>
+        <div class="d-flex feeds align-items-center justify-content-between my-5">
+            <div class="d-none filter1">
+                <div class="d-flex align-items-center justify-content-between gap-3 feed-type">
+                    <div class="d-flex dropdown-sorting">
+                        <span>Sort:</span>
+                        <div class="dropdown ms-2 sort-dropdown">
+                            <div class="dropdown-icon dropdown-toggle selected-sort" data-bs-toggle="dropdown"
+                                 aria-expanded="false">
+                                Most recent <i class="fa-solid fa-arrow-down-long"></i>
+                            </div>
+                            <ul class="dropdown-menu selectedSortValueDisplay">
+                                <li>
+                                    <button class="dropdown-item" type="button" data-value="m-recent">Most recent <i
+                                            class="fa-solid fa-arrow-down-long"></i>
+                                    </button>
+                                </li>
+                                <li>
+                                    <button class="dropdown-item" type="button" data-value="l-recent">Least recent <i
+                                            class="fa-solid fa-arrow-up-long"></i>
+                                    </button>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div>
+                        <button class="btn " type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasBottom"
+                                aria-controls="offcanvasBottom"><i class="fa-solid fa-filter"></i></button>
+                        <div class="offcanvas offcanvas-bottom" tabindex="-1" id="offcanvasBottom"
+                             aria-labelledby="offcanvasBottomLabel" style="height: 550px">
+                            <div class="offcanvas-header">
+                                <h5 class="offcanvas-title" id="offcanvasBottomLabel">Filter</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="offcanvas"
+                                        aria-label="Close"></button>
+                            </div>
+                            <div class="offcanvas-body small ">
+                                <div class="dropdown">
+                                    <button class="btn " data-bs-toggle="collapse" href="#collapseExample1"
+                                            role="button" aria-expanded="false" aria-controls="collapseExample">
+                                        Type
+                                        <i class="fa-solid fa-chevron-down" id="arrow-close"></i>
+                                        <i class="fa-solid fa-chevron-up d-none" id="arrow-open"></i>
+                                    </button>
+                                    <ul class="collapse" id="collapseExample1">
+                                        <li>
+                                            <button class="dropdown-item" type="button" data-value="kindergartens">
+                                                Discussion
+                                            </button>
+                                        </li>
+                                        <li>
+                                            <button class="dropdown-item" type="button" data-value="educator">Article
+                                            </button>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="dropdown type-dropdown">
+                                    <button class="btn " data-bs-toggle="collapse" href="#collapseExample"
+                                            role="button" aria-expanded="false" aria-controls="collapseExample">
+                                        Topic
+                                        <i class="fa-solid fa-chevron-down" id="arrow-close"></i>
+                                        <i class="fa-solid fa-chevron-up d-none" id="arrow-open"></i>
+                                    </button>
+                                    <div class="collapse p-3" id="collapseExample">
+                                        <!-- Search bar -->
+                                        <div class="input-group mb-3 border rounded-pill">
+                                            <input type="text" class="form-control" placeholder="Search here">
+                                            <span class="input-group-text"><i class="fa fa-search"></i></span>
+                                        </div>
+                                        <!-- Selected tags with remove icons -->
+                                        <div class="selected-tags mb-3">
+                                    <span class="tag-item">Commissions <i
+                                            class="fa fa-minus-circle remove-icon"></i></span>
+                                            <span class="tag-item">Payments <i
+                                                    class="fa fa-minus-circle remove-icon"></i></span>
+                                        </div>
+                                        <!-- Tag options -->
+                                        <div class="tags">
+                                            <span class="tag-item">Commissions</span>
+                                            <span class="tag-item">Payments</span>
+                                            <span class="tag-item">Stripe</span>
+                                            <span class="tag-item">Modifications</span>
+                                            <span class="tag-item">Tag</span>
+                                            <span class="tag-item">Tag 2</span>
+                                            <span class="tag-item">Modifications</span>
+                                        </div>
+                                        <!-- "See all" link -->
+                                        <a href="#" class="see-all">See all</a>
+                                    </div>
+                                </div>
+                                <div class="selected-value selected-v rounded-pill">Kindergartens
+                                    <i class="fa-solid fa-xmark"></i>
+                                </div>
+                            </div>
+                            <div class="d-flex justify-content-around pb-3">
+                                <button  type="button" class="btn btn-outline-primary rounded-pill" style="width: 35%">Reset</button>
+                                <button type="button" class="btn btn-warning rounded-pill" style="width: 35%">Apply Filters</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <ul class="nav nav-pills border-bottom gap-5" id="pills-tab" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill"
+                            data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home"
+                            aria-selected="true">All
+                    </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill"
+                            data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile"
+                            aria-selected="false">Public
+                    </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="pills-contact-tab" data-bs-toggle="pill"
+                            data-bs-target="#pills-contact" type="button" role="tab" aria-controls="pills-contact"
+                            aria-selected="false">Private
+                    </button>
+                </li>
+            </ul>
+            <!-- Dropdowns and Input Field -->
+            <div class="d-flex align-items-center gap-3 feed-type filter2">
+                <!-- Type Dropdown -->
+                <div class="dropdown type-dropdown">
+                    <button class="btn dropdown-toggle" type="button" id="typeDropdown" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                        Type
+                        <i class="fa-solid fa-chevron-down" id="arrow-close"></i>
+                        <i class="fa-solid fa-chevron-up d-none" id="arrow-open"></i>
+                    </button>
+                    <div class="dropdown-menu p-3" aria-labelledby="typeDropdown">
+                        <!-- Search bar -->
+                        <div class="input-group mb-3 border rounded-pill">
+                            <input type="text" class="form-control" placeholder="Search here">
+                            <span class="input-group-text"><i class="fa fa-search"></i></span>
+                        </div>
+
+                        <!-- Selected tags with remove icons -->
+                        <div class="selected-tags mb-3">
+                            <span class="tag-item">Commissions <i class="fa fa-minus-circle remove-icon"></i></span>
+                            <span class="tag-item">Payments <i class="fa fa-minus-circle remove-icon"></i></span>
+                        </div>
+
+                        <!-- Tag options -->
+                        <div class="tags">
+                            <span class="tag-item">Commissions</span>
+                            <span class="tag-item">Payments</span>
+                            <span class="tag-item">Stripe</span>
+                            <span class="tag-item">Modifications</span>
+                            <span class="tag-item">Tag</span>
+                            <span class="tag-item">Tag 2</span>
+                            <span class="tag-item">Modifications</span>
+                        </div>
+
+                        <!-- "See all" link -->
+                        <a href="#" class="see-all">See all</a>
+                    </div>
+                </div>
+                <!-- Topic Dropdown -->
+                <div class="dropdown">
+                    <button class="btn dropdown-toggle" type="button" id="topicDropdown"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                        Topic
+                        <i class="fa-solid fa-chevron-down" id="arrow-close"></i>
+                        <i class="fa-solid fa-chevron-up d-none" id="arrow-open"></i>
+                    </button>
+                    <ul class="dropdown-menu" id="logo-dropdown-menu">
+                        <li>
+                            <button class="dropdown-item" type="button" data-value="kindergartens">Kindergartens
+                            </button>
+                        </li>
+                        <li>
+                            <button class="dropdown-item" type="button" data-value="parent">Parent
+                            </button>
+                        </li>
+                        <li>
+                            <button class="dropdown-item" type="button" data-value="educator">Educator
+                            </button>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Contains Tag Input -->
+                <div class="selected-value selected-v rounded-pill">Kindergartens
+                    <i class="fa-solid fa-xmark"></i>
+                </div>
+                <div class="d-flex dropdown-sorting">
+                    <span>Sort:</span>
+                    <div class="dropdown ms-2 sort-dropdown">
+                        <div class="dropdown-icon dropdown-toggle selected-sort" data-bs-toggle="dropdown"
+                             aria-expanded="false">
+                            Most recent <i class="fa-solid fa-arrow-down-long"></i>
+                        </div>
+                        <ul class="dropdown-menu selectedSortValueDisplay">
+                            <li>
+                                <button class="dropdown-item" type="button" data-value="m-recent">Most recent <i
+                                        class="fa-solid fa-arrow-down-long"></i>
+                                </button>
+                            </li>
+                            <li>
+                                <button class="dropdown-item" type="button" data-value="l-recent">Least recent <i
+                                        class="fa-solid fa-arrow-up-long"></i>
+                                </button>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-md-12 col-lg-8 feed-searchbar mb-5">
+            <div class="input-group mb-3 border rounded-pill ">
+                <input type="text" class="form-control" placeholder="Search here">
+                <span class="input-group-text"><i class="fa fa-search"></i></span>
+            </div>
+        </div>
+        <div class="row d-flex justify-content-between">
+            <div class="news-section col-sm-12 col-md-12 col-lg-8">
+                <div class="feed-card pb-3 mb-4 border-bottom">
+                    <div class="d-flex justify-content-between">
+                        <a href="{% url 'detail' %}" class="text-decoration-none text-dark">
+                            <h3>"Building a Bright Future Together in the Kindergarten Community!”</h3>
+                        </a>
+                        <img src="{% static 'images/Type=Kindergarten.png' %}" alt="" width="24" height="24">
+                    </div>
+                    <p>Join an active and inclusive kindergarten community, where children learn, play, and grow
+                        together in
+                        a nurturing environment filled with joy and exploration.</p>
+                    <div class="d-flex justify-content-between">
+                        <div class="d-flex align-items-center gap-2 button">
+                            <span class="btn rounded-pill article">Article</span>
+                            <span class="btn rounded-pill commissions">Commissions</span>
+                            <span class="btn  text-dark rounded-pill commissions">Payments</span>
+                            <span class="btn  text-dark rounded-pill tag170widthmax">Tag170widthmax</span>
+                            <span class="btn  text-dark rounded-pill tag170widthmax">Tag170widthmax</span>
+                        </div>
+                        <div class="d-flex align-items-end gap-1">
+                            <img src="{% static 'images/Ellipse.png' %}" alt="" width="20" height="20">
+                            <span class="">Leonard Lee</span>
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-between align-items-center my-3 mb-md-0 mb-lg-0">
+                        <div class="d-flex gap-3">
+                            {# <span>❤️ 32</span>#}
+                            <span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                       class="bi bi-heart" viewBox="0 0 16 16">
+                                  <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143q.09.083.176.171a3 3 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15"/>
+                                </svg> 32</span>
+                            <span>💬 150</span>
+                        </div>
+                        <div><span class="text-muted">22/10/2024</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                 class="bi bi-eye" viewBox="0 0 16 16">
+                                <path d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8M1.173 8a13 13 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5s3.879 1.168 5.168 2.457A13 13 0 0 1 14.828 8q-.086.13-.195.288c-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5s-3.879-1.168-5.168-2.457A13 13 0 0 1 1.172 8z"/>
+                                <path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5M4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0"/>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+                <div class="feed-card pb-3 mb-4 border-bottom">
+                    <div class="d-flex justify-content-between">
+                        <h3>"Building a Bright Future Together in the Kindergarten Community!”</h3>
+                        <img src="{% static 'images/Type=Parent.png' %}" alt="" width="24" height="24">
+                    </div>
+                    <p>Join an active and inclusive kindergarten community, where children learn, play, and grow
+                        together in
+                        a nurturing environment filled with joy and exploration.</p>
+                    <div class="d-flex justify-content-between">
+                        <div class="d-flex align-items-center gap-2 button">
+                            <span class="btn rounded-pill discussion">Discussion</span>
+                            <span class="btn text-dark rounded-pill commissions ">Payments</span>
+                            <span class="btn text-dark rounded-pill tag170widthmax">Tag170widthmax</span>
+                        </div>
+                        <div class="d-flex align-items-end gap-1">
+                            <img src="{% static 'images/Ellipse.png' %}" alt="" width="20" height="20">
+                            <span class="">Leonard Lee</span>
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-between align-items-center my-3 mb-md-0 mb-lg-0">
+                        <div class="d-flex gap-3">
+                            {# <span>❤️ 32</span>#}
+                            <span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                       class="bi bi-heart" viewBox="0 0 16 16">
+                                  <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143q.09.083.176.171a3 3 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15"/>
+                                </svg> 32</span>
+                            <span>💬 150</span>
+                        </div>
+                        <div><span class="text-muted">22/10/2024</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                 class="bi bi-eye" viewBox="0 0 16 16">
+                                <path d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8M1.173 8a13 13 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5s3.879 1.168 5.168 2.457A13 13 0 0 1 14.828 8q-.086.13-.195.288c-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5s-3.879-1.168-5.168-2.457A13 13 0 0 1 1.172 8z"/>
+                                <path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5M4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0"/>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+                <div class="feed-card pb-3 mb-4 border-bottom">
+                    <div class="d-flex justify-content-between">
+                        <h3>"Building a Bright Future Together in the Kindergarten Community!”</h3>
+                        <img src="{% static 'images/Type=Educator.png' %}" alt="" width="24" height="24">
+                    </div>
+                    <p>Join an active and inclusive kindergarten community, where children learn, play, and grow
+                        together in
+                        a nurturing environment filled with joy and exploration.</p>
+                    <div class="d-flex justify-content-between">
+                        <div class="d-flex align-items-center gap-2 button">
+                            <span class="btn rounded-pill discussion">Discussion</span>
+                            <span class="btn rounded-pill commissions">Commissions</span>
+                            <span class="btn bg-light text-dark rounded-pill tag170widthmax">Tag170widthmax</span>
+                        </div>
+                        <div class="d-flex align-items-end gap-1">
+                            <img src="{% static 'images/Ellipse.png' %}" alt="" width="20" height="20">
+                            <span class="">Leonard Lee</span>
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-between align-items-center my-3 mb-md-0 mb-lg-0">
+                        <div class="d-flex gap-3">
+                            {# <span>❤️ 32</span>#}
+                            <span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                       class="bi bi-heart" viewBox="0 0 16 16">
+                                  <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143q.09.083.176.171a3 3 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15"/>
+                                </svg> 32</span>
+                            <span>💬 150</span>
+                        </div>
+                        <div><span class="text-muted">22/10/2024</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                 class="bi bi-eye" viewBox="0 0 16 16">
+                                <path d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8M1.173 8a13 13 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5s3.879 1.168 5.168 2.457A13 13 0 0 1 14.828 8q-.086.13-.195.288c-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5s-3.879-1.168-5.168-2.457A13 13 0 0 1 1.172 8z"/>
+                                <path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5M4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0"/>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+                <div class="feed-card pb-3 mb-4 border-bottom">
+                    <div class="d-flex justify-content-between">
+                        <h3>"Building a Bright Future Together in the Kindergarten Community!”</h3>
+                        <img src="{% static 'images/Type=Parent.png' %}" alt="" width="24" height="24">
+                    </div>
+                    <p>Join an active and inclusive kindergarten community, where children learn, play, and grow
+                        together in
+                        a nurturing environment filled with joy and exploration.</p>
+                    <div class="d-flex justify-content-between">
+                        <div class="d-flex align-items-center gap-2 button">
+                            <span class="btn rounded-pill discussion">Discussion</span>
+                            <span class="btn rounded-pill commissions">Commissions</span>
+                            <span class="btn bg-light text-dark rounded-pill tag170widthmax">Tag170widthmax</span>
+                        </div>
+                        <div class="d-flex align-items-end gap-1">
+                            <img src="{% static 'images/Ellipse.png' %}" alt="" width="20" height="20">
+                            <span class="">Leonard Lee</span>
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-between align-items-center my-3 mb-md-0 mb-lg-0">
+                        <div class="d-flex gap-3">
+                            {# <span>❤️ 32</span>#}
+                            <span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                       class="bi bi-heart" viewBox="0 0 16 16">
+                                  <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143q.09.083.176.171a3 3 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15"/>
+                                </svg> 32</span>
+                            <span>💬 150</span>
+                        </div>
+                        <div><span class="text-muted">22/10/2024</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                 class="bi bi-eye" viewBox="0 0 16 16">
+                                <path d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8M1.173 8a13 13 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5s3.879 1.168 5.168 2.457A13 13 0 0 1 14.828 8q-.086.13-.195.288c-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5s-3.879-1.168-5.168-2.457A13 13 0 0 1 1.172 8z"/>
+                                <path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5M4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0"/>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+                <div class="feed-card pb-3 mb-4 border-bottom">
+                    <div class="d-flex justify-content-between">
+                        <h3>"Building a Bright Future Together in the Kindergarten Community!”</h3>
+                        <img src="{% static 'images/Type=Kindergarten.png' %}" alt="" width="24" height="24">
+                    </div>
+                    <p>Join an active and inclusive kindergarten community, where children learn, play, and grow
+                        together in
+                        a nurturing environment filled with joy and exploration.</p>
+                    <div class="d-flex justify-content-between">
+                        <div class="d-flex align-items-center gap-2 button">
+                            <span class="btn rounded-pill discussion">Discussion</span>
+                            <span class="btn rounded-pill commissions">Commissions</span>
+                            <span class="btn bg-light text-dark rounded-pill tag170widthmax">Tag170widthmax</span>
+                        </div>
+                        <div class="d-flex align-items-end gap-1">
+                            <img src="{% static 'images/Ellipse.png' %}" alt="" width="20" height="20">
+                            <span class="">Leonard Lee</span>
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-between align-items-center my-3 mb-md-0 mb-lg-0">
+                        <div class="d-flex gap-3">
+                            {# <span>❤️ 32</span>#}
+                            <span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                       class="bi bi-heart" viewBox="0 0 16 16">
+                                  <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143q.09.083.176.171a3 3 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15"/>
+                                </svg> 32</span>
+                            <span>💬 150</span>
+                        </div>
+                        <div><span class="text-muted">22/10/2024</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                 class="bi bi-eye" viewBox="0 0 16 16">
+                                <path d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8M1.173 8a13 13 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5s3.879 1.168 5.168 2.457A13 13 0 0 1 14.828 8q-.086.13-.195.288c-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5s-3.879-1.168-5.168-2.457A13 13 0 0 1 1.172 8z"/>
+                                <path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5M4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0"/>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+                <div class=" my-4">
+                    <button class="btn btn-outline-primary rounded-pill">Load More</button>
+                </div>
+            </div>
+            <div class="tags-section col-sm-12 col-md-12 col-lg-3 d-none d-lg-block d-md-block">
+                <div class="featured-topics">
+                    <h5 class="fw-bold mb-3">Featured topics</h5>
+                    <div class="d-flex flex-wrap gap-2">
+                        <span class="badge tag-item">Tag 1</span>
+                        <span class="badge tag-item">Tag 1</span>
+                        <span class="badge tag-item">Tag 1</span>
+                        <span class="badge tag-item text-truncate">Tag170widthmax...</span>
+                        <span class="badge tag-item">Tag 1</span>
+                        <span class="badge tag-item text-truncate">Tag170widthmax...</span>
+                        <span class="badge tag-item">Tag 1</span>
+                        <span class="badge tag-item text-truncate">Tag170widthmax...</span>
+                        <span class="badge tag-item">Tag 1</span>
+                    </div>
+                    <a href="#" class="see-all d-block mt-3 fw-bold text-primary">See all</a>
+                </div>
+                <div class="popular-tags mt-5">
+                    <h5 class="fw-bold mb-3">Popular tags</h5>
+                    <div class="d-flex flex-wrap gap-2">
+                        <span class="badge tag-item">Commission</span>
+                        <span class="badge tag-item">Payments</span>
+                        <span class="badge tag-item">Stripe</span>
+                        <span class="badge tag-item text-truncate">Modifications</span>
+                        <span class="badge tag-item">Tag 2</span>
+                        <span class="badge tag-item text-truncate">Stripe</span>
+                        <span class="badge tag-item">Tag 2</span>
+                        <span class="badge tag-item ">Modifications</span>
+                    </div>
+                    <a href="#" class="see-all d-block mt-3 fw-bold text-primary">Edit</a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+{% endblock %}

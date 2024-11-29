@@ -1,0 +1,140 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block feed %}
+    <section class="feed-section mx-auto">
+        <div class="d-flex justify-content-between header mt-5">
+            <div class="d-flex align-items-end gap-1">
+                <img src="{% static 'images/Ellipse.png' %}" alt="" width="20" height="20">
+                <span class="">Leonard Lee</span>
+            </div>
+            <div><span class="text-muted">22/10/2024</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                     class="bi bi-eye" viewBox="0 0 16 16">
+                    <path d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8M1.173 8a13 13 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5s3.879 1.168 5.168 2.457A13 13 0 0 1 14.828 8q-.086.13-.195.288c-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5s-3.879-1.168-5.168-2.457A13 13 0 0 1 1.172 8z"/>
+                    <path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5M4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0"/>
+                </svg>
+            </div>
+        </div>
+        <div class="news-section col-12 col-md-12 col-lg-10">
+            <div class="feed-card pb-3">
+                <h3>"Building a Bright Future Together in the Kindergarten Community!”</h3>
+                <div class="d-flex align-items-center gap-2 button my-4">
+                    <span class="btn rounded-pill bg-danger text-white bg-gradient">Article</span>
+                    <span class="btn rounded-pill commissions">Commissions</span>
+                    <span class="btn  text-dark rounded-pill commissions">Payments</span>
+                    <span class="btn  text-dark rounded-pill commissions">Tag170widthmax</span>
+                    <span class="btn  text-dark rounded-pill commissions">Tag170widthmax</span>
+                    <span class="btn  text-dark rounded-pill commissions">Tag170widthmax</span>
+                    <span class="btn  text-dark rounded-pill commissions">Tag170widthmax</span>
+                    <span class="btn  text-dark rounded-pill commissions">Tag170widthmax</span>
+                    <span class="btn  text-dark rounded-pill commissions">Tag170widthmax</span>
+                </div>
+                <div class="col-lg-8 col-md-12 col-sm-12">
+                    <p>Hello fellow community members! As educators and parents, we all strive to provide the best
+                        learning
+                        experiences for our kindergarten students. We understand that engaging young learners is key to
+                        their educational success. Therefore, we invite you to join this discussion to brainstorm
+                        creative
+                        ideas and strategies to make learning more enjoyable and captivating for kindergarten-aged
+                        children.
+                        In this forum, let's share our experiences, suggestions, and innovative techniques that have
+                        proven
+                        effective in making education fun and engaging for young learners. Whether it's incorporating
+                        interactive activities, implementing technology tools, or introducing imaginative play, every
+                        idea
+                        counts!</p>
+                </div>
+                <div class="d-flex fl justify-content-between detail-images overflow-auto W-100 gap-2">
+                    <img src="{% static 'images/Rectangle.png' %}" alt="" width="32%">
+                    <img src="{% static 'images/Rectangle (1).png' %}" alt="" width="32%">
+                    <img src="{% static 'images/Rectangle (2).png' %}" alt="" width="32%">
+                    <img src="{% static 'images/Rectangle (2).png' %}" alt="" width="32%">
+                </div>
+                {#                <div class="d-flex justify-content-between align-items-center my-3 mb-md-0 mb-lg-0">#}
+                <div class="d-flex mt-4 gap-5 button">
+                    <span class="btn rounded-pill  bg-warning">Comment</span>
+                    {# <span>❤️ 32</span>#}
+                    <span class="mt-2"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                            fill="currentColor"
+                                            class="bi bi-heart" viewBox="0 0 16 16">
+                                  <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143q.09.083.176.171a3 3 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15"/>
+                                </svg> 32</span>
+                    <span class="mt-2">💬 150</span>
+                </div>
+                <h4 class="mt-4">22 comments</h4>
+                <div class=" p-4">
+                    <div class="mb-4">
+                        <div class="border-start border-warning border-2 px-4">
+                            <div class="d-flex justify-content-between mb-4">
+                                <div class="d-flex gap-1">
+                                    <img src="{% static 'images/Ellipse.png' %}" alt="" width="20" height="20">
+                                    <span class="">Leonard Lee</span>
+                                </div>
+                                <span class="text-muted">22/10/2024</span>
+                            </div>
+                            <p>Join our vibrant and inclusive kindergarten community, where children learn, explore, and
+                                grow
+                                together in a nurturing environment filled with laughter and joy.
+                            </p>
+                        </div>
+                        <div class="px-4 d-flex align-items-center gap-2">
+                            <img src="{% static 'images/Ellipse (1).png' %}" alt="" width="20" height="20">
+                            <input type="text" placeholder="Type your answer here" class="rounded-pill border w-100 px-3"style="height: 56px;">
+                        </div>
+                    </div>
+                    <div class="mb-4">
+                        <div class="border-start border-warning border-2 px-4">
+                            <div class="d-flex justify-content-between mb-4">
+                                <div class="d-flex gap-1">
+                                    <img src="{% static 'images/Ellipse.png' %}" alt="" width="20" height="20">
+                                    <span class="">Leonard Lee</span>
+                                </div>
+                                <span class="text-muted">22/10/2024</span>
+                            </div>
+                            <p>Join our vibrant and inclusive kindergarten community, where children learn, explore, and
+                                grow
+                                together in a nurturing environment filled with laughter and joy.
+                            </p>
+                        </div>
+                        <div class="px-4 d-flex align-items-center gap-2">
+                            <img src="{% static 'images/Ellipse (1).png' %}" alt="" width="20" height="20">
+                            <input type="text" placeholder="Type your answer here" class="rounded-pill border w-100 px-3"style="height: 56px;">
+                        </div>
+                    </div>
+                    <div class="mb-4">
+                        <div class="border-start border-warning border-2 px-4">
+                            <div class="d-flex justify-content-between mb-4">
+                                <div class="d-flex gap-1">
+                                    <img src="{% static 'images/Ellipse.png' %}" alt="" width="20" height="20">
+                                    <span class="">Leonard Lee</span>
+                                </div>
+                                <span class="text-muted">22/10/2024</span>
+                            </div>
+                            <p>Join our vibrant and inclusive kindergarten community, where children learn, explore, and
+                                grow
+                                together in a nurturing environment filled with laughter and joy.
+                            </p>
+                        </div>
+                        <div class="px-4 d-flex align-items-center gap-2">
+                            <img src="{% static 'images/Ellipse (1).png' %}" alt="" width="20" height="20">
+                            <input type="text" placeholder="Type your answer here" class="rounded-pill border w-100 px-3"style="height: 56px;">
+                        </div>
+                    </div>
+                    <div class=" my-4">
+                    </div>
+                </div>
+                <button class="btn btn-outline-primary rounded-pill">Load More</button>
+                <div class="mt-5">
+                    <h6>Share Your comment</h6>
+                    <div class=" pt-4 ">
+                        <div class="d-flex  gap-2">
+                            <img src="{% static 'images/Ellipse (1).png' %}" alt="" width="20" height="20">
+                            <textarea type="text" placeholder="Type your comment here" rows="6" class="rounded border w-100 px-3" style="background: rgba(237, 241, 251, 1);" ></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

@@ -1,0 +1,1188 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block feed %}
+    <section class="edit-profile-section mx-auto">
+        <h4 class="my-5">Setting</h4>
+        <div>
+            <!-- Navigation Tabs -->
+            <ul class="nav nav-pills border-bottom mb-4">
+                <li class="nav-item">
+                    <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home"
+                            type="button" role="tab" aria-controls="nav-home" aria-selected="true">General Info
+                    </button>
+                </li>
+                <li class="nav-item">
+                    <button class="nav-link" id="classes" data-bs-toggle="tab"
+                            data-bs-target="#classes-profile" type="button" role="tab" aria-controls="classes-profile"
+                            aria-selected="false">Classes
+                    </button>
+                </li>
+                <li class="nav-item">
+                    <button class="nav-link" id="admission" data-bs-toggle="tab"
+                            data-bs-target="#admission-policy" type="button" role="tab" aria-controls="admission-policy"
+                            aria-selected="false">Admission Policy
+                    </button>
+                </li>
+                <li class="nav-item">
+                    <button class="nav-link" id="favourite" data-bs-toggle="tab"
+                            data-bs-target="#favourite-topics" type="button" role="tab" aria-controls="favourite-topics"
+                            aria-selected="false">Favourite Topics
+                    </button>
+                </li>
+                <li class="nav-item">
+                    <button class="nav-link" id="security" data-bs-toggle="tab"
+                            data-bs-target="#security-profile" type="button" role="tab" aria-controls="security-profile"
+                            aria-selected="false">Security
+                    </button>
+                </li>
+            </ul>
+            <div class="tab-content" id="nav-tabContent">
+                <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+                    <!-- Profile Picture Section -->
+                    <div class="d-flex align-items-center mb-4">
+                        <div class="me-4">
+                            <img src={% static 'images/add item.png' %} alt="Profile" class="rounded">
+                        </div>
+                        <div>
+                            <h6 class="">Select from ready-made illustrations</h6>
+                            <div class="d-lg-block d-flex gap-2 image-section">
+                                <div class="d-flex gap-2">
+                            <span style="width: 80px; height: 80px;background: rgba(237, 241, 251, 1); border-radius:12px">
+                            <img src="{% static 'images/Avatars.png' %}" alt="Avatar1" class="rounded-circle me-2"
+                                 style="width: 60px; height: 60px; margin-top: 20px; margin-left: 10px">
+                            </span>
+                                    <span style="width: 80px; height: 80px;background: rgba(237, 241, 251, 1); border-radius:12px">
+                            <img src="{% static 'images/Avatars (1).png' %}" alt="Avatar2" class="rounded-circle me-2"
+                                 style="width: 60px; height: 60px; margin-top: 20px; margin-left: 10px">
+                            </span>
+                                    <span style="width: 80px; height: 80px;background: rgba(237, 241, 251, 1); border-radius:12px">
+                            <img src="{% static 'images/Avatars (2).png' %}" alt="Avatar3" class="rounded-circle me-2"
+                                 style="width: 60px; height: 60px; margin-top: 20px; margin-left: 10px">
+                            </span>
+                                </div>
+                                <div class="d-flex gap-2 mt-lg-2 mt-sm-0">
+                            <span style="width: 80px; height: 80px;background: rgba(237, 241, 251, 1); border-radius:12px">
+                                <img src="{% static 'images/Avatars (3).png' %}" alt="Avatar4"
+                                     class="rounded-circle me-2"
+                                     style="width: 60px; height: 60px; margin-top: 20px; margin-left: 10px">
+                            </span>
+                                    <span style="width: 80px; height: 80px; background: rgba(237, 241, 251, 1); border-radius:12px">
+                                <img src="{% static 'images/Avatars (4).png' %}" alt="Avatar5"
+                                     class="rounded-circle me-2"
+                                     style="width: 60px; height: 60px; margin-top: 20px; margin-left: 10px">
+                            </span>
+                                    <span style="width: 80px; height: 80px;background: rgba(237, 241, 251, 1); border-radius:12px">
+                            <img src="{% static 'images/Frame (1).png' %}" alt="Avatar6" class="rounded-circle me-2"
+                                 style="width: 70px; height: 70px; margin-top: 10px; margin-left: 5px">
+                            </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Form -->
+                    <form>
+                        <div class="row mb-3">
+                            <div class="col-md-4">
+                                <label class="form-label">Username</label>
+                                <input type="text" class="form-control" placeholder="Enter username">
+                            </div>
+                            <div class="col-md-4">
+                                <label class="form-label">Name</label>
+                                <input type="text" class="form-control" placeholder="Enter name">
+                            </div>
+                            <div class="col-md-4">
+                                <label class="form-label">Surname (Optional)</label>
+                                <input type="text" class="form-control" placeholder="Enter surname">
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <div class="col-md-4">
+                                <label class="form-label">Contact Email</label>
+                                <input type="email" class="form-control" placeholder="Enter email">
+                            </div>
+                            <div class="col-md-4">
+                                <label class="form-label">Website</label>
+                                <input type="text" class="form-control" placeholder="Enter website">
+                            </div>
+                            <div class="col-md-4">
+                                <label class="form-label">Kindergarten Type</label>
+                                <select class="form-select">
+                                    <option>Select type</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <label class="form-label">Address</label>
+                                <input type="text" class="form-control" placeholder="Enter address">
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Timing</label>
+                                <select class="form-select">
+                                    <option>Select timing</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">About Us</label>
+                            <textarea class="form-control" rows="5" placeholder="Enter about us"></textarea>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Our Services</label>
+                            <textarea class="form-control" rows="5" placeholder="Enter services"></textarea>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Educational Program</label>
+                            <textarea class="form-control" rows="5" placeholder="Enter educational program"></textarea>
+                        </div>
+
+                        <!-- Schedule -->
+                        <div class="overflow-auto mt-4 table-desktop">
+                            <label>Schedule</label>
+                            <table class="table schedule-table table-borderless mt-3">
+                                <thead class="" style="background: rgba(237, 241, 251, 1);
+                ">
+                                <tr>
+                                    <th></th>
+                                    <th>Mon</th>
+                                    <th>Tue</th>
+                                    <th>Wed</th>
+                                    <th>Thu</th>
+                                    <th>Fri</th>
+                                    <th>Sat</th>
+                                    <th>Sun</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+
+                                <tr>
+                                    <td class="text-start fw-bold"
+                                        style="align-content: space-evenly;color: rgba(12, 30, 91, 1);">Open
+                                    </td>
+                                    <td>
+                                        <label class="d-block mb-1">START TIME</label>
+                                        <div class="d-flex align-items-center gap-1">
+                                            <div class="text-center">
+                                                <i class="fa-solid fa-caret-up"></i>
+                                                <input type="number" value="06" class="table-input form-control">
+                                                <i class="fa-solid fa-caret-down"></i>
+                                            </div>
+                                            :
+                                            <div class="text-center">
+                                                <i class="fa-solid fa-caret-up"></i>
+                                                <input type="number" value="21" class="table-input form-control">
+                                                <i class="fa-solid fa-caret-down"></i>
+                                            </div>
+                                        </div>
+                                        <label class="d-block mt-3 mb-1">END TIME</label>
+                                        <div class="d-flex align-items-center gap-1">
+                                            <div class="text-center">
+                                                <i class="fa-solid fa-caret-up"></i>
+                                                <input type="number" value="21" class="table-input form-control">
+                                                <i class="fa-solid fa-caret-down"></i>
+                                            </div>
+                                            :
+                                            <div class="text-center">
+                                                <i class="fa-solid fa-caret-up"></i>
+                                                <input type="number" value="30" class="table-input form-control">
+                                                <i class="fa-solid fa-caret-down"></i>
+                                            </div>
+                                        </div>
+                                        <p class="mt-2 primary-dark">Closed</p>
+                                    </td>
+                                    <td>
+                                        <label class="d-block mb-1">START TIME</label>
+                                        <div class="d-flex align-items-center gap-1">
+                                            <div class="text-center">
+                                                <i class="fa-solid fa-caret-up"></i>
+                                                <input type="number" value="06" class="table-input form-control">
+                                                <i class="fa-solid fa-caret-down"></i>
+                                            </div>
+                                            :
+                                            <div class="text-center">
+                                                <i class="fa-solid fa-caret-up"></i>
+                                                <input type="number" value="21" class="table-input form-control">
+                                                <i class="fa-solid fa-caret-down"></i>
+                                            </div>
+                                        </div>
+                                        <label class="d-block mt-3 mb-1">END TIME</label>
+                                        <div class="d-flex align-items-center gap-1">
+                                            <div class="text-center">
+                                                <i class="fa-solid fa-caret-up"></i>
+                                                <input type="number" value="21" class="table-input form-control">
+                                                <i class="fa-solid fa-caret-down"></i>
+                                            </div>
+                                            :
+                                            <div class="text-center">
+                                                <i class="fa-solid fa-caret-up"></i>
+                                                <input type="number" value="30" class="table-input form-control">
+                                                <i class="fa-solid fa-caret-down"></i>
+                                            </div>
+                                        </div>
+                                        <p class="mt-2 primary-dark">Closed</p>
+                                    </td>
+                                    <td>
+                                        <label class="d-block mb-1">START TIME</label>
+                                        <div class="d-flex align-items-center gap-1">
+                                            <div class="text-center">
+                                                <i class="fa-solid fa-caret-up"></i>
+                                                <input type="number" value="06" class="table-input form-control">
+                                                <i class="fa-solid fa-caret-down"></i>
+                                            </div>
+                                            :
+                                            <div class="text-center">
+                                                <i class="fa-solid fa-caret-up"></i>
+                                                <input type="number" value="21" class="table-input form-control">
+                                                <i class="fa-solid fa-caret-down"></i>
+                                            </div>
+                                        </div>
+                                        <label class="d-block mt-3 mb-1">END TIME</label>
+                                        <div class="d-flex align-items-center gap-1">
+                                            <div class="text-center">
+                                                <i class="fa-solid fa-caret-up"></i>
+                                                <input type="number" value="21" class="table-input form-control">
+                                                <i class="fa-solid fa-caret-down"></i>
+                                            </div>
+                                            :
+                                            <div class="text-center">
+                                                <i class="fa-solid fa-caret-up"></i>
+                                                <input type="number" value="30" class="table-input form-control">
+                                                <i class="fa-solid fa-caret-down"></i>
+                                            </div>
+                                        </div>
+                                        <p class="mt-2 primary-dark">Closed</p>
+                                    </td>
+                                    <td>
+                                        <label class="d-block mb-1">START TIME</label>
+                                        <div class="d-flex align-items-center gap-1">
+                                            <div class="text-center">
+                                                <i class="fa-solid fa-caret-up"></i>
+                                                <input type="number" value="06" class="table-input form-control">
+                                                <i class="fa-solid fa-caret-down"></i>
+                                            </div>
+                                            :
+                                            <div class="text-center">
+                                                <i class="fa-solid fa-caret-up"></i>
+                                                <input type="number" value="21" class="table-input form-control">
+                                                <i class="fa-solid fa-caret-down"></i>
+                                            </div>
+                                        </div>
+                                        <label class="d-block mt-3 mb-1">END TIME</label>
+                                        <div class="d-flex align-items-center gap-1">
+                                            <div class="text-center">
+                                                <i class="fa-solid fa-caret-up"></i>
+                                                <input type="number" value="21" class="table-input form-control">
+                                                <i class="fa-solid fa-caret-down"></i>
+                                            </div>
+                                            :
+                                            <div class="text-center">
+                                                <i class="fa-solid fa-caret-up"></i>
+                                                <input type="number" value="30" class="table-input form-control">
+                                                <i class="fa-solid fa-caret-down"></i>
+                                            </div>
+                                        </div>
+                                        <p class="mt-2 primary-dark">Closed</p>
+                                    </td>
+                                    <td>
+                                        <label class="d-block mb-1">START TIME</label>
+                                        <div class="d-flex align-items-center gap-1">
+                                            <div class="text-center">
+                                                <i class="fa-solid fa-caret-up"></i>
+                                                <input type="number" value="06" class="table-input form-control">
+                                                <i class="fa-solid fa-caret-down"></i>
+                                            </div>
+                                            :
+                                            <div class="text-center">
+                                                <i class="fa-solid fa-caret-up"></i>
+                                                <input type="number" value="21" class="table-input form-control">
+                                                <i class="fa-solid fa-caret-down"></i>
+                                            </div>
+                                        </div>
+                                        <label class="d-block mt-3 mb-1">END TIME</label>
+                                        <div class="d-flex align-items-center gap-1">
+                                            <div class="text-center">
+                                                <i class="fa-solid fa-caret-up"></i>
+                                                <input type="number" value="21" class="table-input form-control">
+                                                <i class="fa-solid fa-caret-down"></i>
+                                            </div>
+                                            :
+                                            <div class="text-center">
+                                                <i class="fa-solid fa-caret-up"></i>
+                                                <input type="number" value="30" class="table-input form-control">
+                                                <i class="fa-solid fa-caret-down"></i>
+                                            </div>
+                                        </div>
+                                        <p class="mt-2 primary-dark">Closed</p>
+                                    </td>
+                                    <td>
+                                        <label class="d-block mb-1">START TIME</label>
+                                        <div class="d-flex align-items-center gap-1">
+                                            <div class="text-center">
+                                                <i class="fa-solid fa-caret-up"></i>
+                                                <input type="number" value="06" class="table-input form-control">
+                                                <i class="fa-solid fa-caret-down"></i>
+                                            </div>
+                                            :
+                                            <div class="text-center">
+                                                <i class="fa-solid fa-caret-up"></i>
+                                                <input type="number" value="21" class="table-input form-control">
+                                                <i class="fa-solid fa-caret-down"></i>
+                                            </div>
+                                        </div>
+                                        <label class="d-block mt-3 mb-1">END TIME</label>
+                                        <div class="d-flex align-items-center gap-1">
+                                            <div class="text-center">
+                                                <i class="fa-solid fa-caret-up"></i>
+                                                <input type="number" value="21" class="table-input form-control">
+                                                <i class="fa-solid fa-caret-down"></i>
+                                            </div>
+                                            :
+                                            <div class="text-center">
+                                                <i class="fa-solid fa-caret-up"></i>
+                                                <input type="number" value="30" class="table-input form-control">
+                                                <i class="fa-solid fa-caret-down"></i>
+                                            </div>
+                                        </div>
+                                        <p class="mt-2 primary-dark">Closed</p>
+                                    </td>
+                                    <td style="align-content: space-evenly">
+                                        <button class="btn btn-link primary-dark">Add Time</button>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="schedule-container mt-4 d-lg-none d-sm-block">
+                            <h5>Schedule</h5>
+                            <div class="d-flex align-items-center justify-content-end p-2 rounded mb-3">
+                                <span class="w-75 bg-light text-center">Open</span>
+                            </div>
+
+                            <!-- Repeat this block for each day -->
+                            <div class="day-schedule mb-3 border-bottom">
+                                <div class="d-flex align-items-center justify-content-between mb-2">
+                                    <div class="fw-bold me-3">Mon</div>
+                                    <div>
+                                        <div class="d-flex gap-3">
+                                            <div>
+                                                <label class="d-block text-muted">START TIME</label>
+                                                <div class="d-flex gap-2 align-items-center">
+                                                    <div class="d-inline-block text-center">
+                                                        <i class="fa-solid fa-caret-up"></i>
+                                                        <input type="number"
+                                                               class="form-control table-input p-1 text-center"
+                                                               value="06"/>
+                                                        <i class="fa-solid fa-caret-down"></i>
+                                                    </div>
+                                                    :
+                                                    <div class="d-inline-block text-center">
+                                                        <i class="fa-solid fa-caret-up"></i>
+                                                        <input type="number"
+                                                               class="form-control table-input p-1 text-center"
+                                                               value="21"/>
+                                                        <i class="fa-solid fa-caret-down"></i>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <label class="d-block text-muted">END TIME</label>
+                                                <div class="d-flex gap-2 align-items-center">
+                                                    <div class="d-inline-block text-center">
+                                                        <i class="fa-solid fa-caret-up"></i>
+                                                        <input type="number"
+                                                               class="form-control table-input p-1 text-center"
+                                                               value="21"/>
+                                                        <i class="fa-solid fa-caret-down"></i>
+                                                    </div>
+                                                    :
+                                                    <div class="d-inline-block text-center">
+                                                        <i class="fa-solid fa-caret-up"></i>
+                                                        <input type="number"
+                                                               class="form-control table-input p-1 text-center"
+                                                               value="30"/>
+                                                        <i class="fa-solid fa-caret-down"></i>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <p class="mt-2 text-primary text-center fw-bold">Closed</p>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                            <div class="day-schedule mb-3 border-bottom">
+                                <div class="d-flex align-items-center justify-content-between mb-2">
+                                    <div class="fw-bold me-3">Tue</div>
+                                    <div>
+                                        <div class="d-flex gap-3">
+                                            <div>
+                                                <label class="d-block text-muted">START TIME</label>
+                                                <div class="d-flex gap-2 align-items-center">
+                                                    <div class="d-inline-block text-center">
+                                                        <i class="fa-solid fa-caret-up"></i>
+                                                        <input type="number"
+                                                               class="form-control table-input p-1 text-center"
+                                                               value="06"/>
+                                                        <i class="fa-solid fa-caret-down"></i>
+                                                    </div>
+                                                    :
+                                                    <div class="d-inline-block text-center">
+                                                        <i class="fa-solid fa-caret-up"></i>
+                                                        <input type="number"
+                                                               class="form-control table-input p-1 text-center"
+                                                               value="21"/>
+                                                        <i class="fa-solid fa-caret-down"></i>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <label class="d-block text-muted">END TIME</label>
+                                                <div class="d-flex gap-2 align-items-center">
+                                                    <div class="d-inline-block text-center">
+                                                        <i class="fa-solid fa-caret-up"></i>
+                                                        <input type="number"
+                                                               class="form-control table-input p-1 text-center"
+                                                               value="21"/>
+                                                        <i class="fa-solid fa-caret-down"></i>
+                                                    </div>
+                                                    :
+                                                    <div class="d-inline-block text-center">
+                                                        <i class="fa-solid fa-caret-up"></i>
+                                                        <input type="number"
+                                                               class="form-control table-input p-1 text-center"
+                                                               value="30"/>
+                                                        <i class="fa-solid fa-caret-down"></i>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <p class="mt-2 text-primary text-center fw-bold">Closed</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="day-schedule mb-3 border-bottom">
+                                <div class="d-flex align-items-center justify-content-between mb-2">
+                                    <div class="fw-bold me-3">Wed</div>
+                                    <div>
+                                        <div class="d-flex gap-3">
+                                            <div>
+                                                <label class="d-block text-muted">START TIME</label>
+                                                <div class="d-flex gap-2 align-items-center">
+                                                    <div class="d-inline-block text-center">
+                                                        <i class="fa-solid fa-caret-up"></i>
+                                                        <input type="number"
+                                                               class="form-control table-input p-1 text-center"
+                                                               value="06"/>
+                                                        <i class="fa-solid fa-caret-down"></i>
+                                                    </div>
+                                                    :
+                                                    <div class="d-inline-block text-center">
+                                                        <i class="fa-solid fa-caret-up"></i>
+                                                        <input type="number"
+                                                               class="form-control table-input p-1 text-center"
+                                                               value="21"/>
+                                                        <i class="fa-solid fa-caret-down"></i>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <label class="d-block text-muted">END TIME</label>
+                                                <div class="d-flex gap-2 align-items-center">
+                                                    <div class="d-inline-block text-center">
+                                                        <i class="fa-solid fa-caret-up"></i>
+                                                        <input type="number"
+                                                               class="form-control table-input p-1 text-center"
+                                                               value="21"/>
+                                                        <i class="fa-solid fa-caret-down"></i>
+                                                    </div>
+                                                    :
+                                                    <div class="d-inline-block text-center">
+                                                        <i class="fa-solid fa-caret-up"></i>
+                                                        <input type="number"
+                                                               class="form-control table-input p-1 text-center"
+                                                               value="30"/>
+                                                        <i class="fa-solid fa-caret-down"></i>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <p class="mt-2 text-primary text-center fw-bold">Closed</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="day-schedule mb-3 border-bottom">
+                                <div class="d-flex align-items-center justify-content-between mb-2">
+                                    <div class="fw-bold me-3">Thu</div>
+                                    <div>
+                                        <div class="d-flex gap-3">
+                                            <div>
+                                                <label class="d-block text-muted">START TIME</label>
+                                                <div class="d-flex gap-2 align-items-center">
+                                                    <div class="d-inline-block text-center">
+                                                        <i class="fa-solid fa-caret-up"></i>
+                                                        <input type="number"
+                                                               class="form-control table-input p-1 text-center"
+                                                               value="06"/>
+                                                        <i class="fa-solid fa-caret-down"></i>
+                                                    </div>
+                                                    :
+                                                    <div class="d-inline-block text-center">
+                                                        <i class="fa-solid fa-caret-up"></i>
+                                                        <input type="number"
+                                                               class="form-control table-input p-1 text-center"
+                                                               value="21"/>
+                                                        <i class="fa-solid fa-caret-down"></i>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <label class="d-block text-muted">END TIME</label>
+                                                <div class="d-flex gap-2 align-items-center">
+                                                    <div class="d-inline-block text-center">
+                                                        <i class="fa-solid fa-caret-up"></i>
+                                                        <input type="number"
+                                                               class="form-control table-input p-1 text-center"
+                                                               value="21"/>
+                                                        <i class="fa-solid fa-caret-down"></i>
+                                                    </div>
+                                                    :
+                                                    <div class="d-inline-block text-center">
+                                                        <i class="fa-solid fa-caret-up"></i>
+                                                        <input type="number"
+                                                               class="form-control table-input p-1 text-center"
+                                                               value="30"/>
+                                                        <i class="fa-solid fa-caret-down"></i>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <p class="mt-2 text-primary text-center fw-bold">Closed</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="day-schedule mb-3 border-bottom">
+                                <div class="d-flex align-items-center justify-content-between mb-2">
+                                    <div class="fw-bold me-3">Fri</div>
+                                    <div>
+                                        <div class="d-flex gap-3">
+                                            <div>
+                                                <label class="d-block text-muted">START TIME</label>
+                                                <div class="d-flex gap-2 align-items-center">
+                                                    <div class="d-inline-block text-center">
+                                                        <i class="fa-solid fa-caret-up"></i>
+                                                        <input type="number"
+                                                               class="form-control table-input p-1 text-center"
+                                                               value="06"/>
+                                                        <i class="fa-solid fa-caret-down"></i>
+                                                    </div>
+                                                    :
+                                                    <div class="d-inline-block text-center">
+                                                        <i class="fa-solid fa-caret-up"></i>
+                                                        <input type="number"
+                                                               class="form-control table-input p-1 text-center"
+                                                               value="21"/>
+                                                        <i class="fa-solid fa-caret-down"></i>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <label class="d-block text-muted">END TIME</label>
+                                                <div class="d-flex gap-2 align-items-center">
+                                                    <div class="d-inline-block text-center">
+                                                        <i class="fa-solid fa-caret-up"></i>
+                                                        <input type="number"
+                                                               class="form-control table-input p-1 text-center"
+                                                               value="21"/>
+                                                        <i class="fa-solid fa-caret-down"></i>
+                                                    </div>
+                                                    :
+                                                    <div class="d-inline-block text-center">
+                                                        <i class="fa-solid fa-caret-up"></i>
+                                                        <input type="number"
+                                                               class="form-control table-input p-1 text-center"
+                                                               value="30"/>
+                                                        <i class="fa-solid fa-caret-down"></i>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <p class="mt-2 text-primary text-center fw-bold">Closed</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="day-schedule mb-3 border-bottom">
+                                <div class="d-flex align-items-center justify-content-between mb-2">
+                                    <div class="fw-bold me-3">Sat</div>
+                                    <div>
+                                        <div class="d-flex gap-3">
+                                            <div>
+                                                <label class="d-block text-muted">START TIME</label>
+                                                <div class="d-flex gap-2 align-items-center">
+                                                    <div class="d-inline-block text-center">
+                                                        <i class="fa-solid fa-caret-up"></i>
+                                                        <input type="number"
+                                                               class="form-control table-input p-1 text-center"
+                                                               value="06"/>
+                                                        <i class="fa-solid fa-caret-down"></i>
+                                                    </div>
+                                                    :
+                                                    <div class="d-inline-block text-center">
+                                                        <i class="fa-solid fa-caret-up"></i>
+                                                        <input type="number"
+                                                               class="form-control table-input p-1 text-center"
+                                                               value="21"/>
+                                                        <i class="fa-solid fa-caret-down"></i>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <label class="d-block text-muted">END TIME</label>
+                                                <div class="d-flex gap-2 align-items-center">
+                                                    <div class="d-inline-block text-center">
+                                                        <i class="fa-solid fa-caret-up"></i>
+                                                        <input type="number"
+                                                               class="form-control table-input p-1 text-center"
+                                                               value="21"/>
+                                                        <i class="fa-solid fa-caret-down"></i>
+                                                    </div>
+                                                    :
+                                                    <div class="d-inline-block text-center">
+                                                        <i class="fa-solid fa-caret-up"></i>
+                                                        <input type="number"
+                                                               class="form-control table-input p-1 text-center"
+                                                               value="30"/>
+                                                        <i class="fa-solid fa-caret-down"></i>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <p class="mt-2 text-primary text-center fw-bold">Closed</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Example for Sunday with Add Time -->
+                            <div class="day-schedule mb-3 w-75">
+                                <div class="d-flex align-items-center justify-content-between mb-2">
+                                    <div class="fw-bold me-3">Sun</div>
+                                    <div class="text-primary">
+                                        <button class="btn btn-link p-0">Add Time</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Typical Day -->
+                        <div class="mb-3">
+                            <label class="form-label mb-4">Typical Day</label>
+                            <div class="row mb-4">
+                                <div class="col-md-4">
+                                    <label class="form-label">Start time</label>
+                                    <input type="number" class="form-control" placeholder="Enter start Time">
+                                </div>
+                                <div class="col-md-4">
+                                    <label class="form-label">End time</label>
+                                    <input type="number" class="form-control" placeholder="Enter end Time">
+                                </div>
+                                <div class="col-md-4">
+                                    <label class="form-label">Title</label>
+                                    <input type="text" class="form-control" placeholder="Title">
+                                </div>
+                            </div>
+                            <label class="form-label">Description</label>
+                            <textarea class="form-control mt-2" rows="2" placeholder="Enter description"></textarea>
+                            <div class="row my-4">
+                                <div class="col-md-4">
+                                    <label class="form-label">Start time</label>
+                                    <input type="number" class="form-control" placeholder="Enter start Time">
+                                </div>
+                                <div class="col-md-4">
+                                    <label class="form-label">End time</label>
+                                    <input type="number" class="form-control" placeholder="Enter end Time">
+                                </div>
+                                <div class="col-md-4">
+                                    <label class="form-label">Title</label>
+                                    <input type="text" class="form-control" placeholder="Title">
+                                </div>
+                            </div>
+                            <label class="form-label">Description</label>
+                            <textarea class="form-control mt-2" rows="2" placeholder="Enter description"></textarea>
+                        </div>
+                        <div class=" py-3">
+                            <button class="btn border-dotted">ADD PERIOD</button>
+                        </div>
+                        <!-- Menu -->
+                        <div class="mb-3">
+                            <label class="form-label">Menu</label>
+                            <textarea class="form-control" rows="3" placeholder="Enter menu"></textarea>
+                        </div>
+
+                        <!-- Buttons -->
+                        <div class="d-flex gap-2 submit-section">
+                            <button type="button" class="btn btn-outline-primary px-4 rounded-pill cancel">Cancel
+                            </button>
+                            <button type="submit" class="btn btn-warning px-4 rounded-pill save">Save Changes</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="tab-pane fade" id="classes-profile" role="tabpanel" aria-labelledby="classes-profile-tab">
+                    <div class="d-flex gap-3 profile-setting my-4">
+                        <select class="form-select w-25 rounded-pill">
+                            <option>Select type</option>
+                        </select>
+                        <button type="button" class="btn btn-outline-primary px-4 fw-bold rounded-pill cancel"><i
+                                class="fa-solid fa-plus me-1"></i>Cancel
+                        </button>
+                    </div>
+                    <!-- Profile Picture Section -->
+                    <div class="d-flex align-items-center mb-4">
+                        <div class="me-4">
+                            <img src={% static 'images/add item.png' %} alt="Profile" class="rounded">
+                        </div>
+                    </div>
+                    <!-- Form -->
+                    <form>
+                        <div class="row mb-3">
+                            <div class="col-md-4">
+                                <label class="form-label">Name of class</label>
+                                <input type="text" class="form-control" placeholder="Monterossi">
+                            </div>
+                            <div class="col-md-4">
+                                <label class="form-label">Educator's name</label>
+                                <input type="text" class="form-control" placeholder="John Doe">
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-md-4 w-lg-25 w-sm-100">
+                                <label class="form-label">Start age</label>
+                                <div class="d-flex gap-1">
+                                    <input type="number" class="form-control" value="3">
+                                    <select class="form-select rounded-pill">
+                                        <option>Month</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-4 w-lg-25 w-sm-100">
+                                <label class="form-label">Final age</label>
+                                <div class="d-flex gap-1">
+                                    <input type="number" class="form-control" value="3">
+                                    <select class="form-select rounded-pill">
+                                        <option>Years</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Description</label>
+                            <textarea class="form-control" rows="5" placeholder="Class description"></textarea>
+                        </div>
+                        <div class="mb-3 gallery">
+                            <h5>Gallery </h5>
+                            <div class="row mb-4">
+                                <div class="col-lg-3 col-md-3 col-sm-4 col-3 img-box">
+                                    <img src={% static 'images/photo (7).png' %} alt="Profile" class="rounded">
+                                    <div class="middle">
+                                        <i class="fa-solid fa-magnifying-glass-plus zoom"></i>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 col-md-3 col-sm-4 col-3 img-box ">
+                                    <img src={% static 'images/photo (4).png' %} alt="Profile" class="rounded">
+                                    <div class="middle">
+                                        <i class="fa-solid fa-magnifying-glass-plus zoom"></i>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 col-md-3 col-sm-4 col-3 img-box">
+                                    <img src={% static 'images/photo (5).png' %} alt="Profile" class="rounded">
+                                    <div class="middle">
+                                        <i class="fa-solid fa-magnifying-glass-plus zoom"></i>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 col-md-3 col-sm-4 col-3 img-box">
+                                    <img src={% static 'images/photo (4).png' %} alt="Profile" class="rounded">
+                                    <div class="middle">
+                                        <i class="fa-solid fa-magnifying-glass-plus zoom"></i>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 col-md-3 col-sm-4 col-3 img-box">
+                                    <img src={% static 'images/photo (3).png' %} alt="Profile" class="rounded">
+                                    <div class="middle">
+                                        <i class="fa-solid fa-magnifying-glass-plus zoom"></i>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 col-md-3 col-sm-4 col-3 img-box">
+                                    <img src={% static 'images/photo (6).png' %} alt="Profile" class="rounded">
+                                    <div class="middle">
+                                        <i class="fa-solid fa-magnifying-glass-plus zoom"></i>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 col-md-3 col-sm-4 col-3 mt-1 mt-lg-3">
+                                    <div class="profile-images px-3 btn-upload d-flex flex-column justify-content-center align-items-center">
+                                        <p>ADD IMAGE</p>
+                                        <small class="d-none d-lg-block ">Upload or drag and drop an image here</small>
+                                        <small class=" d-none d-lg-block text-muted fs-xs mt-3" style="font-size: 10px">PNG
+                                            and
+                                            JPG files are allowed</small>
+                                    </div>
+                                    {#                            <img src={% static 'images/add item.png' %} alt="Profile" class="rounded">#}
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Buttons -->
+                        <div class="d-flex gap-2 submit-section">
+                            <button type="button" class="btn btn-outline-primary px-4 rounded-pill cancel">Cancel
+                            </button>
+                            <button type="submit" class="btn btn-warning px-4 rounded-pill save">Save Changes</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="tab-pane fade" id="admission-policy" role="tabpanel" aria-labelledby="admission-tab">
+                    <form class="admission-policy">
+                        <div class="mb-3">
+                            <label class="form-label">Description</label>
+                            <textarea class="form-control" rows="5" placeholder="Class description"></textarea>
+                        </div>
+                        <div>
+                            <h5>Age Configurations</h5>
+                            <div class="row mb-3">
+                                <div class="col-md-4 w-lg-25 w-sm-100">
+                                    <label class="form-label">Start age</label>
+                                    <div class="d-flex gap-1">
+                                        <input type="number" class="form-control" value="3">
+                                        <select class="form-select rounded-pill">
+                                            <option>Month</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 w-lg-25 w-sm-100">
+                                    <label class="form-label">Final age</label>
+                                    <div class="d-flex gap-1">
+                                        <input type="number" class="form-control" value="3">
+                                        <select class="form-select rounded-pill">
+                                            <option>Years</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 w-lg-25 w-sm-100">
+                                    <label class="form-label">Price</label>
+                                    <div class="d-flex gap-1">
+                                        <input type="number" class="form-control w-50" value="2300">
+                                        <div><i class="fa-solid fa-circle-minus text-danger"></i></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <div class="col-md-4 w-lg-25 w-sm-100">
+                                    <label class="form-label">Start age</label>
+                                    <div class="d-flex gap-1">
+                                        <input type="number" class="form-control" value="12">
+                                        <select class="form-select rounded-pill">
+                                            <option>Month</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 w-lg-25 w-sm-100">
+                                    <label class="form-label">Final age</label>
+                                    <div class="d-flex gap-1">
+                                        <input type="number" class="form-control" value="5">
+                                        <select class="form-select rounded-pill">
+                                            <option>Years</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 w-lg-25 w-sm-100">
+                                    <label class="form-label">Price</label>
+                                    <div class="d-flex gap-1">
+                                        <input type="number" class="form-control w-50" value="2500">
+                                        <div><i class="fa-solid fa-circle-minus text-danger"></i></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class=" py-3">
+                                <button class="btn border-dotted w-50">ADD AGE</button>
+                            </div>
+                        </div>
+                        <div>
+                            <h5>Special Condition Configurations</h5>
+                            <div class="row mb-3">
+                                <div class="col-md-6 w-lg-25 w-sm-100">
+                                    <div class="d-flex gap-1">
+                                        <div class="d-flex align-items-end ">
+                                            <select class="form-select rounded-pill ">
+                                                <option>Dyslexia</option>
+                                            </select>
+                                        </div>
+                                        <div class="d-flex gap-1">
+                                            <div class="">
+                                                <label class="form-label ">Price</label>
+                                                <input type="number" class="form-control " value="2300">
+                                            </div>
+                                            <i class="fa-solid fa-circle-minus text-danger d-flex align-items-center"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 w-lg-25 w-sm-100">
+                                    <div class="d-flex gap-1">
+                                        <div class="d-flex align-items-end">
+                                            <select class="form-select rounded-pill ">
+                                                <option>Dyslexia</option>
+                                            </select>
+                                        </div>
+                                        <div class="d-flex gap-1">
+                                            <div class="">
+                                                <label class="form-label ">Price</label>
+                                                <input type="number" class="form-control " value="2300">
+                                            </div>
+                                            <i class="fa-solid fa-circle-minus text-danger d-flex align-items-center"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class=" py-3">
+                                <button class="btn border-dotted w-50">ADD SPECIAL CONDITION</button>
+                            </div>
+                        </div>
+                        <div>
+                            <h5>Other Configurations</h5>
+                            <div class="row mb-3">
+                                <div class="col-md-6 w-lg-25 w-sm-100">
+                                    <div class="d-flex gap-1">
+                                        <div class="d-flex align-items-end w-25">
+                                            <select class="form-select rounded-pill ">
+                                                <option>Allergies</option>
+                                            </select>
+                                        </div>
+                                        <div class="d-flex gap-1">
+                                            <div class="">
+                                                <label class="form-label ">Price</label>
+                                                <input type="number" class="form-control " value="2300">
+                                            </div>
+                                            <i class="fa-solid fa-circle-minus text-danger d-flex align-items-center"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 w-lg-25 w-sm-100">
+                                    <div class="d-flex gap-1">
+                                        <div class="d-flex align-items-end w-25">
+                                            <select class="form-select rounded-pill ">
+                                                <option>Allergies</option>
+                                            </select>
+                                        </div>
+                                        <div class="d-flex gap-1">
+                                            <div class="">
+                                                <label class="form-label ">Price</label>
+                                                <input type="number" class="form-control " value="2300">
+                                            </div>
+                                            <i class="fa-solid fa-circle-minus text-danger d-flex align-items-center"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class=" py-3">
+                                <button class="btn border-dotted w-50">ADD OTHER</button>
+                            </div>
+                        </div>
+                        <div class="number-of-place">
+                            <h5>Number of Place</h5>
+                            <div class="row mb-3">
+                                <div class="col-md-6 w-lg-25 w-sm-100">
+                                    <div class="d-flex gap-1 group-title">
+                                        <div class="">
+                                            <label class="form-label">Group title</label>
+                                            <input type="text" class="form-control" value="Kids">
+                                        </div>
+                                        <div>
+                                            <label class="form-label">Start age</label>
+                                            <div class="d-flex gap-1">
+                                                <input type="number" class="form-control" value="7">
+                                                <select class="form-select rounded-pill">
+                                                    <option>Months</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 w-lg-25 w-sm-100">
+                                    <div class="d-flex final-age">
+                                        <div>
+                                            <label class="form-label">Final age</label>
+                                            <div class="d-flex gap-1">
+                                                <input type="number" class="form-control" value="5">
+                                                <select class="form-select rounded-pill">
+                                                    <option>Years</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div><label class="form-label">Free Places</label>
+                                            <div class="d-flex gap-1 price">
+                                                <input type="number" class="form-control w-50" value="4">
+                                                <div><i class="fa-solid fa-circle-minus text-danger"></i></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 w-lg-25 w-sm-100">
+                                    <div class="d-flex gap-1 group-title">
+                                        <div class="">
+                                            <label class="form-label">Group title</label>
+                                            <input type="text" class="form-control" value="Small">
+                                        </div>
+                                        <div>
+                                            <label class="form-label">Start age</label>
+                                            <div class="d-flex gap-1">
+                                                <input type="number" class="form-control" value="3">
+                                                <select class="form-select rounded-pill">
+                                                    <option>Month</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 w-lg-25 w-sm-100">
+                                    <div class="d-flex final-age">
+                                        <div>
+                                            <label class="form-label">Final age</label>
+                                            <div class="d-flex gap-1">
+                                                <input type="number" class="form-control" value="6">
+                                                <select class="form-select rounded-pill">
+                                                    <option>Months</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div><label class="form-label">Free Places</label>
+                                            <div class="d-flex gap-1 price">
+                                                <input type="number" class="form-control w-50" value="4">
+                                                <div><i class="fa-solid fa-circle-minus text-danger"></i></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class=" py-3">
+                                <button class="btn border-dotted w-50">ADD GROUP</button>
+                            </div>
+                        </div>
+                        <div>
+                            <h5>Accommodation for Special Kids</h5>
+                            <div class="row mb-3">
+                                <div class="col-md-6  w-sm-100">
+                                    <div>
+                                        <h6 class="form-label">Accepted Allergies</h6>
+                                        <div class="d-flex gap-1">
+                                            <select class="form-select rounded-pill">
+                                                <option>Month</option>
+                                            </select>
+                                            <button class="btn border-dotted w-100">ADD GROUP</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6  w-sm-100">
+                                    <div>
+                                        <h6 class="form-label">Accepted Allergies</h6>
+                                        <div class="d-flex gap-1">
+                                            <select class="form-select rounded-pill">
+                                                <option>Month</option>
+                                            </select>
+                                            <button class="btn border-dotted w-100">ADD GROUP</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Description</label>
+                                <textarea class="form-control" rows="5" placeholder="Class description"></textarea>
+                            </div>
+                        </div>
+                        <!-- Buttons -->
+                        <div class="d-flex gap-2 submit-section">
+                            <button type="button" class="btn btn-outline-primary px-4 rounded-pill cancel">Cancel
+                            </button>
+                            <button type="submit" class="btn btn-warning px-4 rounded-pill save">Save Changes</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="tab-pane fade favourite-section" id="favourite-topics" role="tabpanel" aria-labelledby="favourite-tab">
+                    <div class=" favourite-topics">
+                        <label class="form-label">
+                            Favourite topics
+                        </label>
+                        <!-- Selected tags with remove icons -->
+                        <div class="selected-tags mb-3 d-flex gap-2">
+                                    <span class="tag-item badge rounded-pill position-relative">Commissions
+                                        <i class="fa fa-minus-circle remove-icon position-absolute"></i>
+                                    </span>
+                            <span class="tag-item badge rounded-pill position-relative">Payments
+                                    <i class="fa fa-minus-circle remove-icon position-absolute"></i>
+                                </span>
+                        </div>
+                        <div class="">
+                            <!-- Search bar -->
+                            <div class="input-group mb-3 border rounded-pill w-50">
+                                <input type="text" class="form-control" placeholder="Search here">
+                                <span class="input-group-text"><i class="fa fa-search"></i></span>
+                            </div>
+
+                            <!-- Tag options -->
+                            <div class="tags w-50 d-flex gap-2 flex-wrap">
+                                <span class="tag-item badge rounded-pill">Commissions</span>
+                                <span class="tag-item badge rounded-pill">Payments</span>
+                                <span class="tag-item badge rounded-pill">Stripe</span>
+                                <span class="tag-item badge rounded-pill">Modifications</span>
+                                <span class="tag-item badge rounded-pill">Tag</span>
+                                <span class="tag-item badge rounded-pill">Tag 2</span>
+                                <span class="tag-item badge rounded-pill">Modifications</span><span
+                                    class="tag-item badge rounded-pill">Payments</span>
+                                <span class="tag-item badge rounded-pill">Stripe</span>
+                                <span class="tag-item badge rounded-pill">Modifications</span>
+                                <span class="tag-item badge rounded-pill">Tag</span>
+                                <span class="tag-item badge rounded-pill">Tag 2</span>
+                                <span class="tag-item badge rounded-pill">Modifications</span>
+                            </div>
+                            <!-- "See all" link -->
+                            <div>
+                                <a href="#" type="button" class="see-all mb-4 mt-3">See all</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Buttons -->
+                    <div class="d-flex gap-2 submit-section">
+                        <button type="button" class="btn btn-outline-primary px-4 rounded-pill cancel">Cancel
+                        </button>
+                        <button type="submit" class="btn btn-warning px-4 rounded-pill save">Save Changes</button>
+                    </div>
+                </div>
+                <div class="tab-pane fade security-section" id="security-profile" role="tabpanel" aria-labelledby="security-tab">
+                    <div class=" security-profile">
+                        <label class="form-label">
+                            EMAIL
+                        </label>
+                        <div class="input-group mb-3 border-bottom pb-3">
+                            <input type="text" class="form-control" value="abc@gmail.com">
+                            <button type="button" class="btn btn-outline-primary px-4 rounded-pill cancel">Change
+                            </button>
+                        </div>
+                        <label class="form-label">
+                            PASSWORD
+                        </label>
+                        <div class="input-group mb-3 border-bottom pb-3">
+                            <input type="password" class="form-control" value="********">
+                            <button type="button" class="btn btn-outline-primary px-4 rounded-pill cancel">Change
+                            </button>
+                        </div>
+                    </div>
+                    <!-- Buttons -->
+                    <div class="d-flex gap-2 submit-section">
+                        <button type="button" class="btn btn-outline-primary px-4 rounded-pill cancel">Cancel</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+{% endblock %}
